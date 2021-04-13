@@ -16,6 +16,8 @@ const Contact = () => {
     messageErrorDesc: "",
   });
 
+  const [counter, setCounter] = useState(0);
+
   const submitHandler = (e) => {
     e.preventDefault();
     const email = e.target.elements["email"].value;
@@ -78,14 +80,18 @@ const Contact = () => {
           <ValidationOutput>{validationResult.emailErrorDesc}</ValidationOutput>
           <Textarea
             rows='6'
-            placeholder='Wpisz wiadomość'
+            placeholder='Wpisz wiadomość (maksymalnie 300 znaków)'
             name='message'
-            maxLength='10'
+            maxLength='300'
             className={validationResult.message ? "" : "error"}
+            onChange={(e) => setCounter(e.target.value.length)}
           ></Textarea>
-          <ValidationOutput>
-            {validationResult.messageErrorDesc}
-          </ValidationOutput>
+          <TextareaInfoBar>
+            <ValidationOutput>
+              {validationResult.messageErrorDesc}
+            </ValidationOutput>
+            <Counter>{counter} / 300</Counter>
+          </TextareaInfoBar>
           <Button3D>Wyślij</Button3D>
         </Form>
       </Tile>
@@ -109,7 +115,17 @@ const Form = styled.form`
 
 const StyledInput = styled(Input)``;
 
+const TextareaInfoBar = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 const ValidationOutput = styled.div`
   color: red;
+  margin-bottom: 10px;
+`;
+
+const Counter = styled.div`
+  text-align: right;
   margin-bottom: 10px;
 `;
