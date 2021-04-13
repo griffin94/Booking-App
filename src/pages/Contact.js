@@ -9,39 +9,59 @@ import {
 } from "../components/ui/UIComponents";
 
 const Contact = () => {
-  const [emailValid, setEmailValid] = useState(true);
-  const [messageValid, setMessageValid] = useState(true);
+  const [validationResult, setValidationResult] = useState({
+    email: true,
+    emailErrorDesc: "",
+    message: true,
+    messageErrorDesc: "",
+  });
 
   const submitHandler = (e) => {
     e.preventDefault();
-    const emailInput = e.target.elements["email"];
-    const messageInput = e.target.elements["message"];
-    console.log(validateEmail(emailInput));
-    console.log(validateMessage(messageInput));
+    const email = e.target.elements["email"].value;
+    const message = e.target.elements["message"].value;
+    const emailValidationResult = validateEmail(email);
+    const messageValidationResult = validateMessage(message);
+    if (emailValidationResult.email && messageValidationResult.message) {
+      console.log("Success");
+    } else {
+      console.log("Error");
+    }
   };
 
-  const validateEmail = (emailInput) => {
+  const validateEmail = (email) => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    const result = re.test(emailInput.value);
-    result ? setEmailValid(true) : setEmailValid(false);
+    let result = null;
+
+    if (!email.trim()) {
+      result = {
+        email: false,
+        emailErrorDesc: "Uzupełnij pole",
+      };
+    } else if (!re.test(email)) {
+      result = {
+        email: false,
+        emailErrorDesc: "Błędny adres e-mail",
+      };
+    } else {
+      result = {
+        email: true,
+        emailErrorDesc: "",
+      };
+    }
+
+    setValidationResult((prevState) => ({ ...prevState, ...result }));
     return result;
   };
 
-  const validateMessage = (messageInput) => {
-    const result = messageInput.value ? true : false;
-    result ? setMessageValid(true) : setMessageValid(false);
+  const validateMessage = (message) => {
+    const result = {
+      message: message ? true : false,
+      messageErrorDesc: message ? "" : "Uzupełnij pole",
+    };
+
+    setValidationResult((prevState) => ({ ...prevState, ...result }));
     return result;
-  };
-
-  const showError = (input) => {
-    setEmailValid(false);
-    // input.classList.add("error");
-  };
-
-  const removeError = (input) => {
-    setEmailValid(true);
-    console.log("OK");
-    // input.classList.remove("error");
   };
 
   return (
@@ -53,19 +73,18 @@ const Contact = () => {
             type='text'
             placeholder='Email'
             name='email'
-            className={emailValid ? "" : "error"}
+            className={validationResult.email ? "" : "error"}
           />
-          <ValidationOutput>
-            {emailValid ? "" : "Wpisz poprawny adres e-mail"}
-          </ValidationOutput>
+          <ValidationOutput>{validationResult.emailErrorDesc}</ValidationOutput>
           <Textarea
             rows='6'
             placeholder='Wpisz wiadomość'
             name='message'
-            className={messageValid ? "" : "error"}
+            maxLength='10'
+            className={validationResult.message ? "" : "error"}
           ></Textarea>
           <ValidationOutput>
-            {messageValid ? "" : "Wpisz wiadomość"}
+            {validationResult.messageErrorDesc}
           </ValidationOutput>
           <Button3D>Wyślij</Button3D>
         </Form>
