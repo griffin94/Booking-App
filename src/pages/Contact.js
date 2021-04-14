@@ -5,8 +5,11 @@ import {
   Tile,
   Input,
   Textarea,
-  Button3D,
+  Button,
+  IconButton,
 } from "../components/ui/UIComponents";
+import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
+import HighlightOffOutlinedIcon from "@material-ui/icons/HighlightOffOutlined";
 
 const Contact = () => {
   const [validationResult, setValidationResult] = useState({
@@ -17,6 +20,7 @@ const Contact = () => {
   });
 
   const [counter, setCounter] = useState(0);
+  const [hintOpen, setHintOpen] = useState(false);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -69,31 +73,53 @@ const Contact = () => {
   return (
     <Container>
       <Tile>
-        <Form onSubmit={(e) => submitHandler(e)}>
-          <Title>Napisz do nas!</Title>
-          <StyledInput
-            type='text'
-            placeholder='Email'
-            name='email'
-            className={validationResult.email ? "" : "error"}
-          />
-          <ValidationOutput>{validationResult.emailErrorDesc}</ValidationOutput>
-          <Textarea
-            rows='6'
-            placeholder='Wpisz wiadomość (maksymalnie 300 znaków)'
-            name='message'
-            maxLength='300'
-            className={validationResult.message ? "" : "error"}
-            onChange={(e) => setCounter(e.target.value.length)}
-          ></Textarea>
-          <TextareaInfoBar>
+        <Content>
+          <Header>
+            <Title>Napisz do nas!</Title>
+            <IconButton onClick={() => setHintOpen(true)}>
+              <InfoOutlinedIcon />
+            </IconButton>
+          </Header>
+          <Form onSubmit={(e) => submitHandler(e)}>
+            <StyledInput
+              type='text'
+              placeholder='Email'
+              name='email'
+              className={validationResult.email ? "" : "error"}
+              onBlur={(e) => validateEmail(e.target.value)}
+            />
             <ValidationOutput>
-              {validationResult.messageErrorDesc}
+              {validationResult.emailErrorDesc}
             </ValidationOutput>
-            <Counter>{counter} / 300</Counter>
-          </TextareaInfoBar>
-          <Button3D>Wyślij</Button3D>
-        </Form>
+            <Textarea
+              rows='6'
+              placeholder='Wpisz wiadomość (maksymalnie 300 znaków)'
+              name='message'
+              maxLength='300'
+              className={validationResult.message ? "" : "error"}
+              onChange={(e) => setCounter(e.target.value.length)}
+              onBlur={(e) => validateMessage(e.target.value)}
+            ></Textarea>
+            <TextareaInfoBar>
+              <ValidationOutput>
+                {validationResult.messageErrorDesc}
+              </ValidationOutput>
+              <Counter>{counter} / 300</Counter>
+            </TextareaInfoBar>
+            <Button>Wyślij</Button>
+          </Form>
+          <Hint className={hintOpen ? "active" : ""}>
+            <IconButton onClick={() => setHintOpen(false)}>
+              <HighlightOffOutlinedIcon />
+            </IconButton>
+            <HintContent>
+              Booking App jest aplikacją fikcyjną i nie posiada własnej skrzynki
+              odbiorczej.
+              <br />
+              Twoja wiadomość nie zostanie nigdzie wysłana.
+            </HintContent>
+          </Hint>
+        </Content>
       </Tile>
     </Container>
   );
@@ -101,14 +127,49 @@ const Contact = () => {
 
 export default Contact;
 
+const Content = styled.div`
+  max-width: 400px;
+  margin: 0 auto;
+  position: relative;
+`;
+
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+`;
+const Hint = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  overflow: auto;
+  border-radius: 5px;
+  border: ${(props) => props.theme.tooltip.border};
+  background: ${(props) => props.theme.tooltip.bg};
+  clip-path: circle(0px at 100% 0%);
+  transition: clip-path 0.4s ease-out;
+  &.active {
+    clip-path: circle(800px at 100% 0%);
+  }
+`;
+
+const HintContent = styled.div`
+  font-size: ${(props) => props.theme.fonts.sm};
+  line-height: 1.7;
+  padding: 20px;
+`;
+
 const Title = styled.h2`
   font-size: ${(props) => props.theme.fonts.xl};
-  margin: 10px 0;
+  margin-bottom: 10px;
 `;
 
 const Form = styled.form`
-  max-width: 400px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
 `;

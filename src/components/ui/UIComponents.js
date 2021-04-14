@@ -15,8 +15,8 @@ const Tile = styled.div`
   z-index: 0;
   overflow: hidden;
   color: ${(props) => props.theme.fontColor};
-  background: ${(props) => props.theme.tiles.bg};
-  box-shadow: ${(props) => props.theme.tiles.shadow};
+  background: ${(props) => props.theme.tile.bg};
+  box-shadow: ${(props) => props.theme.tile.shadow};
   :last-child {
     margin-bottom: 0;
   }
@@ -129,7 +129,7 @@ const IconButton = styled.button`
   :hover {
     outline: none;
     border: 1px solid #009dff;
-    border-radius: 4px;
+    border-radius: 6px;
   }
 `;
 
