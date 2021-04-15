@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
-import { Button, Tile } from "./ui/UIComponents";
+import { Button, Tile, Title } from "./ui/UIComponents";
 import { Link } from "react-router-dom";
 import StarIcon from "@material-ui/icons/Star";
 
@@ -36,48 +36,35 @@ const HotelBasic = ({
     <Tile>
       <RowContainer>
         <ImgContainer>
-          <Img src={image} />
+          <Img src={image} alt='hotel-image' />
         </ImgContainer>
         <Info>
-          <HotelName>{name}</HotelName>
+          <Title>{name}</Title>
           <Table>
-            <TableData>
-              <TableLabel>Kraj</TableLabel>
-              <br />
-              {country}
-            </TableData>
-            <TableData>
-              <TableLabel>Miasto</TableLabel>
-              <br />
-              {city}
-            </TableData>
-            <TableData>
-              <TableLabel>Rodzaj</TableLabel>
-              <br />
-              {type}
-            </TableData>
-            <TableData>
-              <TableLabel>Standard</TableLabel>
-              <br />
-              {stars}
-            </TableData>
-          </Table>
-          <Table>
-            <TableData>
-              <TableLabel>Cena</TableLabel>
-              <br />
-              {price} zł doba/os
-            </TableData>
-            <TableData>
-              <TableLabel>Opinie</TableLabel>
-              <br />
-              {opinions}
-            </TableData>
-            <TableData>
-              <TableLabel>Ocena</TableLabel>
-              <br />
-              <Rating rating={rating}>{rating}</Rating>
-            </TableData>
+            <TableRow>
+              <HeaderCell>Lokalizacja</HeaderCell>
+              <HeaderCell>Typ</HeaderCell>
+              <HeaderCell>Standard</HeaderCell>
+            </TableRow>
+            <TableRow>
+              <DataCell>
+                {country}, {city}
+              </DataCell>
+              <DataCell>{type}</DataCell>
+              <DataCell>{stars}</DataCell>
+            </TableRow>
+            <TableRow>
+              <HeaderCell>Cena</HeaderCell>
+              <HeaderCell>Opinie</HeaderCell>
+              <HeaderCell>Ocena</HeaderCell>
+            </TableRow>
+            <TableRow>
+              <DataCell>{price} zł doba/os</DataCell>
+              <DataCell>{opinions}</DataCell>
+              <DataCell>
+                <Rating rating={rating}>{rating}</Rating>
+              </DataCell>
+            </TableRow>
           </Table>
         </Info>
       </RowContainer>
@@ -125,32 +112,33 @@ const Info = styled.div`
   flex: 1 1 50%;
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  padding: 20px 0;
+  text-align: center;
   @media (min-width: 800px) {
-    margin: 0px;
-    padding-left: 20px;
+    padding: 0;
   }
 `;
 
-const Table = styled.div`
-  margin: 10px 0;
-  display: flex;
+const Table = styled.table`
+  margin-top: 20px;
+  @media (min-width: 800px) {
+    margin: auto 0;
+  }
+`;
+const TableRow = styled.tr`
+  &:nth-of-type(even) {
+    border: 1px solid black;
+  }
+`;
+const HeaderCell = styled.th`
+  font-size: ${(props) => props.theme.fonts.md};
+  padding: 5px;
   text-align: center;
 `;
-const TableData = styled.div`
-  margin: 0 auto;
-  padding: 10px 0;
+const DataCell = styled.td`
   font-size: ${(props) => props.theme.fonts.md};
-`;
-const TableLabel = styled.span`
-  font-size: ${(props) => props.theme.fonts.md};
-  font-weight: lighter;
-`;
-
-const HotelName = styled.h2`
-  font-size: ${(props) => props.theme.fonts.xl};
+  padding: 5px;
   text-align: center;
-  letter-spacing: 1px;
 `;
 
 const Rating = styled.span`
