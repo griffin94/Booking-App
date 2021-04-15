@@ -125,11 +125,8 @@ const Table = styled.table`
     margin: auto 0;
   }
 `;
-const TableRow = styled.tr`
-  &:nth-of-type(even) {
-    border: 1px solid black;
-  }
-`;
+const TableRow = styled.tr``;
+
 const HeaderCell = styled.th`
   font-size: ${(props) => props.theme.fonts.md};
   padding: 5px;
