@@ -34,10 +34,6 @@ const theme = {
       bg: "#444",
       shadow: "0px 5px 4px rgb(0 0 0 / 20%)",
     },
-    tooltip: {
-      bg: "#666",
-      border: "1px solid #888",
-    },
     fonts,
   },
   lightTheme: {
@@ -63,10 +59,6 @@ const theme = {
     tile: {
       bg: "#fff",
       shadow: "0 1px 4px rgb(41 51 57 / 50%)",
-    },
-    tooltip: {
-      bg: "#f5f5f5",
-      border: "1px solid #585858",
     },
     fonts,
   },
