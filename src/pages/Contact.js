@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {
   Container,
   Tile,
+  Title,
   Input,
   Textarea,
   Button,
@@ -170,11 +171,6 @@ const HintContent = styled.div`
   font-size: ${(props) => props.theme.fonts.sm};
   line-height: 1.7;
   padding: 20px;
-`;
-
-const Title = styled.h2`
-  font-size: ${(props) => props.theme.fonts.xl};
-  margin-bottom: 10px;
 `;
 
 const Form = styled.form`

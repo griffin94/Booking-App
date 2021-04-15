@@ -38,6 +38,12 @@ const Tile = styled.div`
 
 export { Tile };
 
+const Title = styled.h2`
+  font-size: ${(props) => props.theme.fonts.xl};
+`;
+
+export { Title };
+
 const Input = styled.input`
   min-width: 0px;
   height: 40px;

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Container, Tile } from "../components/ui/UIComponents";
+import { Container, Tile, Title } from "../components/ui/UIComponents";
 import HotelIcon from "@material-ui/icons/Hotel";
 import PublicIcon from "@material-ui/icons/Public";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
@@ -71,10 +71,6 @@ const About = () => {
 };
 
 export default About;
-
-const Title = styled.h2`
-  font-size: ${(props) => props.theme.fonts.xl};
-`;
 
 const SmallTilesContainer = styled.div`
   @media (min-width: 800px) {
