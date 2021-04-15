@@ -76,17 +76,21 @@ const Contact = () => {
         <Content>
           <Header>
             <Title>Napisz do nas!</Title>
-            <IconButton onClick={() => setHintOpen(true)}>
+            <IconButton
+              onClick={() => setHintOpen(true)}
+              disabled={hintOpen ? true : false}
+            >
               <InfoOutlinedIcon />
             </IconButton>
           </Header>
           <Form onSubmit={(e) => submitHandler(e)}>
-            <StyledInput
+            <Input
               type='text'
               placeholder='Email'
               name='email'
               className={validationResult.email ? "" : "error"}
               onBlur={(e) => validateEmail(e.target.value)}
+              disabled={hintOpen ? true : false}
             />
             <ValidationOutput>
               {validationResult.emailErrorDesc}
@@ -99,6 +103,7 @@ const Contact = () => {
               className={validationResult.message ? "" : "error"}
               onChange={(e) => setCounter(e.target.value.length)}
               onBlur={(e) => validateMessage(e.target.value)}
+              disabled={hintOpen ? true : false}
             ></Textarea>
             <TextareaInfoBar>
               <ValidationOutput>
@@ -106,10 +111,13 @@ const Contact = () => {
               </ValidationOutput>
               <Counter>{counter} / 300</Counter>
             </TextareaInfoBar>
-            <Button>Wyślij</Button>
+            <Button disabled={hintOpen ? true : false}>Wyślij</Button>
           </Form>
           <Hint className={hintOpen ? "active" : ""}>
-            <IconButton onClick={() => setHintOpen(false)}>
+            <IconButton
+              onClick={() => setHintOpen(false)}
+              disabled={hintOpen ? false : true}
+            >
               <HighlightOffOutlinedIcon />
             </IconButton>
             <HintContent>
@@ -149,10 +157,10 @@ const Hint = styled.div`
   align-items: flex-end;
   overflow: auto;
   border-radius: 5px;
-  border: ${(props) => props.theme.tooltip.border};
-  background: ${(props) => props.theme.tooltip.bg};
+  background: rgba(0, 0, 0, 0.95);
+  color: #fff;
   clip-path: circle(0px at 100% 0%);
-  transition: clip-path 0.4s ease-out;
+  transition: clip-path 0.4s linear;
   &.active {
     clip-path: circle(800px at 100% 0%);
   }
@@ -173,8 +181,6 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
 `;
-
-const StyledInput = styled(Input)``;
 
 const TextareaInfoBar = styled.div`
   display: flex;
