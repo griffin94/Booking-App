@@ -12,7 +12,7 @@ const HotelBasic = ({
   rating,
   description,
   fullDescription,
-  image,
+  images,
   opinions,
   price,
   type,
@@ -36,7 +36,7 @@ const HotelBasic = ({
     <Tile>
       <RowContainer>
         <ImgContainer>
-          <Img src={image} alt='hotel-image' />
+          <Img src={images[0].url} alt='hotel-image' />
         </ImgContainer>
         <Info>
           <Title>{name}</Title>

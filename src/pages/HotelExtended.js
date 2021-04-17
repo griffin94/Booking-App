@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import Carousel from "../components/Carousel";
 import { Container, Tile } from "../components/ui/UIComponents";
 import hotelsData from "../data/hotelsData";
 
 const HotelExtended = () => {
   const params = useParams();
-  const [hotel, setHotel] = useState({});
-
-  useEffect(() => {
-    setHotel(...hotelsData.filter((hotel) => hotel.id === params.id));
-  }, []);
+  const [hotel, setHotel] = useState(() => {
+    const [initialState] = hotelsData.filter((hotel) => hotel.id === params.id);
+    return initialState;
+  });
 
   return (
     <Container>
@@ -18,6 +18,7 @@ const HotelExtended = () => {
         <p>{hotel.name}</p>
         <p>{hotel.city}</p>
         <p>{hotel.rating}</p>
+        <Carousel images={hotel.images} />
       </Tile>
     </Container>
   );
