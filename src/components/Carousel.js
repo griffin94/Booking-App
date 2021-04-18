@@ -5,6 +5,7 @@ import KeyboardArrowRightTwoToneIcon from "@material-ui/icons/KeyboardArrowRight
 import { IconButton } from "./ui/UIComponents";
 
 const Carousel = ({ images }) => {
+  const [modal, setModal] = useState(false);
   const [active, setActive] = useState(0);
   const position = -(active * 100) / images.length;
 
@@ -18,37 +19,51 @@ const Carousel = ({ images }) => {
 
   return (
     <Wrapper>
-      <List images={images.length} translation={position}>
-        {images.map((image) => (
-          <ListItem key={image.id}>
-            <Img src={image.url} />
+      <Slider>
+        <List images={images.length} translation={position}>
+          {images.map((image) => (
+            <ListItem key={image.id}>
+              <Img src={image.url} onClick={() => setModal(true)} />
+            </ListItem>
+          ))}
+        </List>
+        <LeftNav>
+          <IconButton onClick={moveLeft}>
+            <KeyboardArrowLeftTwoToneIcon
+              style={{ fill: "#fff", fontSize: "60px" }}
+            />
+          </IconButton>
+        </LeftNav>
+        <RightNav>
+          <IconButton onClick={moveRight}>
+            <KeyboardArrowRightTwoToneIcon
+              style={{ fill: "#fff", fontSize: "60px" }}
+            />
+          </IconButton>
+        </RightNav>
+      </Slider>
+      <Gallery>
+        {images.map((img, index) => (
+          <ListItem key={img.id} onClick={() => setActive(index)}>
+            <SmallImg src={img.url} className={index === active && "active"} />
           </ListItem>
         ))}
-      </List>
-      <LeftNav>
-        <IconButton onClick={moveLeft}>
-          <KeyboardArrowLeftTwoToneIcon
-            style={{ fill: "#fff", fontSize: "60px" }}
-          />
-        </IconButton>
-      </LeftNav>
-      <RightNav>
-        <IconButton onClick={moveRight}>
-          <KeyboardArrowRightTwoToneIcon
-            style={{ fill: "#fff", fontSize: "60px" }}
-          />
-        </IconButton>
-      </RightNav>
+      </Gallery>
+      <Modal active={modal} onClick={() => setModal(false)}>
+        <Img src={images[active].url} />
+      </Modal>
     </Wrapper>
   );
 };
 
 export default Carousel;
 
-const Wrapper = styled.div`
-  border-radius: 6px;
+const Wrapper = styled.div``;
+
+const Slider = styled.div`
   overflow: hidden;
   position: relative;
+  border-radius: 6px;
 `;
 const List = styled.ul`
   list-style-type: none;
@@ -63,6 +78,7 @@ const ListItem = styled.li`
 const Img = styled.img`
   display: block;
   width: 100%;
+  cursor: pointer;
 `;
 const LeftNav = styled.div`
   position: absolute;
@@ -79,6 +95,35 @@ const RightNav = styled.div`
   bottom: 0;
   right: 0;
   display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Gallery = styled.ul`
+  list-style-type: none;
+  overflow: hidden;
+  margin: 10px 0;
+  display: flex;
+`;
+
+const SmallImg = styled(Img)`
+  border-radius: 6px;
+  border: 2px solid transparent;
+  &.active {
+    border: 2px solid #009dff;
+  }
+`;
+
+const Modal = styled.div`
+  cursor: pointer;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: ${(props) => (props.active ? "flex" : "none")};
   justify-content: center;
   align-items: center;
 `;
