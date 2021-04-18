@@ -12,7 +12,6 @@ const Tile = styled.div`
   padding: 20px;
   border-radius: 6px;
   position: relative;
-  z-index: 0;
   overflow: hidden;
   color: ${(props) => props.theme.fontColor};
   background: ${(props) => props.theme.tile.bg};
@@ -23,7 +22,6 @@ const Tile = styled.div`
   ::before {
     content: "";
     position: absolute;
-    z-index: 0;
     top: 0;
     left: 0;
     width: 100%;
