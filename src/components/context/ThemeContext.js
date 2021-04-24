@@ -34,6 +34,9 @@ const theme = {
       bg: "#444",
       shadow: "0px 5px 4px rgb(0 0 0 / 20%)",
     },
+    accordion: {
+      bg: "#666",
+    },
     fonts,
   },
   lightTheme: {
@@ -59,6 +62,9 @@ const theme = {
     tile: {
       bg: "#fff",
       shadow: "0 1px 4px rgb(41 51 57 / 50%)",
+    },
+    accordion: {
+      bg: "#e5e5e5",
     },
     fonts,
   },

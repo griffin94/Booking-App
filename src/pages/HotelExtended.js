@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import { useParams } from "react-router-dom";
+import Accordion from "../components/Accordion";
 import Carousel from "../components/Carousel";
-import { Container, Tile } from "../components/ui/UIComponents";
+import { Container, Tile, Title } from "../components/ui/UIComponents";
 import hotelsData from "../data/hotelsData";
 
 const HotelExtended = () => {
@@ -14,14 +16,18 @@ const HotelExtended = () => {
   return (
     <Container>
       <Tile>
-        <p>Hotel id: {hotel.id}</p>
-        <p>{hotel.name}</p>
-        <p>{hotel.city}</p>
-        <p>{hotel.rating}</p>
+        <StyledTitle>
+          {hotel.name} - {hotel.city}, {hotel.country}
+        </StyledTitle>
         <Carousel images={hotel.images} />
+        <Accordion accordionData={hotel.accordion} />
       </Tile>
     </Container>
   );
 };
 
 export default HotelExtended;
+
+const StyledTitle = styled(Title)`
+  margin-bottom: 20px;
+`;

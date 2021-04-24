@@ -35,6 +35,32 @@ const hotelsData = [
           "https://i.content4travel.com/cms/img/u/desktop/prodsliderphoto/skganas_3.jpg?version=2.5.404",
       },
     ],
+    accordion: [
+      {
+        id: 1,
+        header: "Położenie",
+        content:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae enim quis veniam minima inventore, vitae aliquid ad magni suscipit soluta, nihil beatae asperiores nostrum labore distinctio! Voluptatum molestias beatae omnis? Quis laborum facere earum non quos.",
+      },
+      {
+        id: 2,
+        header: "Plaża",
+        content:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae enim quis veniam minima inventore, vitae aliquid ad magni suscipit soluta, nihil beatae asperiores nostrum labore distinctio! Voluptatum molestias beatae omnis? Quis laborum facere earum non quos.",
+      },
+      {
+        id: 3,
+        header: "Pokój",
+        content:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae enim quis veniam minima inventore, vitae aliquid ad magni suscipit soluta, nihil beatae asperiores nostrum labore distinctio! Voluptatum molestias beatae omnis? Quis laborum facere earum non quos.",
+      },
+      {
+        id: 4,
+        header: "Wyżywienie",
+        content:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae enim quis veniam minima inventore, vitae aliquid ad magni suscipit soluta, nihil beatae asperiores nostrum labore distinctio! Voluptatum molestias beatae omnis? Quis laborum facere earum non quos.",
+      },
+    ],
   },
   {
     id: "5695e78a-44ea-4d70-8fa4-e7928bfcb73a",
@@ -77,6 +103,32 @@ const hotelsData = [
           "https://i.content4travel.com/cms/img/u/desktop/prodsliderphoto/kvadrea_4.jpg?version=2.5.404",
       },
     ],
+    accordion: [
+      {
+        id: 1,
+        header: "Położenie",
+        content:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae enim quis veniam minima inventore, vitae aliquid ad magni suscipit soluta, nihil beatae asperiores nostrum labore distinctio! Voluptatum molestias beatae omnis? Quis laborum facere earum non quos.",
+      },
+      {
+        id: 2,
+        header: "Plaża",
+        content:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae enim quis veniam minima inventore, vitae aliquid ad magni suscipit soluta, nihil beatae asperiores nostrum labore distinctio! Voluptatum molestias beatae omnis? Quis laborum facere earum non quos.",
+      },
+      {
+        id: 3,
+        header: "Pokój",
+        content:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae enim quis veniam minima inventore, vitae aliquid ad magni suscipit soluta, nihil beatae asperiores nostrum labore distinctio! Voluptatum molestias beatae omnis? Quis laborum facere earum non quos.",
+      },
+      {
+        id: 4,
+        header: "Wyżywienie",
+        content:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae enim quis veniam minima inventore, vitae aliquid ad magni suscipit soluta, nihil beatae asperiores nostrum labore distinctio! Voluptatum molestias beatae omnis? Quis laborum facere earum non quos.",
+      },
+    ],
   },
   {
     id: "831d65e7-0ee1-4fe7-9976-09aae7253482",
@@ -117,6 +169,32 @@ const hotelsData = [
         id: 4,
         url:
           "https://i.content4travel.com/cms/img/u/desktop/prodsliderphoto/mlefiha_4.jpg?version=2.5.404",
+      },
+    ],
+    accordion: [
+      {
+        id: 1,
+        header: "Położenie",
+        content:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae enim quis veniam minima inventore, vitae aliquid ad magni suscipit soluta, nihil beatae asperiores nostrum labore distinctio! Voluptatum molestias beatae omnis? Quis laborum facere earum non quos.",
+      },
+      {
+        id: 2,
+        header: "Plaża",
+        content:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae enim quis veniam minima inventore, vitae aliquid ad magni suscipit soluta, nihil beatae asperiores nostrum labore distinctio! Voluptatum molestias beatae omnis? Quis laborum facere earum non quos.",
+      },
+      {
+        id: 3,
+        header: "Pokój",
+        content:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae enim quis veniam minima inventore, vitae aliquid ad magni suscipit soluta, nihil beatae asperiores nostrum labore distinctio! Voluptatum molestias beatae omnis? Quis laborum facere earum non quos.",
+      },
+      {
+        id: 4,
+        header: "Wyżywienie",
+        content:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae enim quis veniam minima inventore, vitae aliquid ad magni suscipit soluta, nihil beatae asperiores nostrum labore distinctio! Voluptatum molestias beatae omnis? Quis laborum facere earum non quos.",
       },
     ],
   },
