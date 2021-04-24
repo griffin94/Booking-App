@@ -17,6 +17,10 @@ const Carousel = ({ images }) => {
     active === 0 ? setActive(images.length - 1) : setActive(active - 1);
   };
 
+  const keyPressHandler = (e, index) => {
+    e.key === "Enter" && setActive(index);
+  };
+
   return (
     <Wrapper>
       <Slider>
@@ -44,8 +48,15 @@ const Carousel = ({ images }) => {
       </Slider>
       <Gallery>
         {images.map((img, index) => (
-          <ListItem key={img.id} onClick={() => setActive(index)}>
-            <SmallImg src={img.url} className={index === active && "active"} />
+          <ListItem key={img.id}>
+            <SmallImg
+              src={img.url}
+              className={index === active && "active"}
+              onClick={() => setActive(index)}
+              onKeyPress={(e) => keyPressHandler(e, index)}
+              role='button'
+              tabIndex='0'
+            />
           </ListItem>
         ))}
       </Gallery>
@@ -69,7 +80,7 @@ const List = styled.ul`
   list-style-type: none;
   width: ${(props) => `${props.images * 100}%`};
   display: flex;
-  transition: transform 0.2s ease-in;
+  transition: transform 0.5s ease-in-out;
   transform: ${(props) => `translateX(${props.translation}%)`};
 `;
 const ListItem = styled.li`
@@ -109,7 +120,9 @@ const Gallery = styled.ul`
 const SmallImg = styled(Img)`
   border-radius: 6px;
   border: 2px solid transparent;
-  &.active {
+  &.active,
+  :focus {
+    outline: none;
     border: 2px solid #009dff;
   }
 `;
