@@ -1,11 +1,12 @@
 import React from "react";
 import { Container } from "../components/ui/UIComponents";
 import HotelBasic from "../components/HotelBasic";
+import hotelsData from "./../data/hotelsData";
 
-const Hotels = ({ hotels }) => {
+const Hotels = () => {
   return (
     <Container>
-      {hotels.map((hotel) => (
+      {hotelsData.map((hotel) => (
         <HotelBasic key={hotel.id} {...hotel} />
       ))}
     </Container>

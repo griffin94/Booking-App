@@ -10,6 +10,7 @@ const withMousePosition = (WrappedComponent) => {
         y: e.pageY,
       });
     };
+
     useEffect(() => {
       ComponentRef.current.addEventListener("mousemove", updateMousePosition);
       return () => {
@@ -20,7 +21,9 @@ const withMousePosition = (WrappedComponent) => {
       };
     }, []);
     return (
-      <WrappedComponent {...props} mousePos={mousePos} ref={ComponentRef} />
+      <div ref={ComponentRef}>
+        <WrappedComponent {...props} mousePos={mousePos} />
+      </div>
     );
   };
 

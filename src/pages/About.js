@@ -1,6 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { Container, Tile, Title } from "../components/ui/UIComponents";
+import {
+  Container,
+  Tile,
+  Title,
+  SmallTitle,
+} from "../components/ui/UIComponents";
 import HotelIcon from "@material-ui/icons/Hotel";
 import PublicIcon from "@material-ui/icons/Public";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
@@ -23,7 +28,7 @@ const About = () => {
     <Container>
       <Tile>
         <Title>Nasze założenia</Title>
-        <Paragraph>
+        <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s, when an unknown printer took a galley of type and
@@ -33,36 +38,36 @@ const About = () => {
           the release of Letraset sheets containing Lorem Ipsum passages, and
           more recently with desktop publishing software like Aldus PageMaker
           including versions of Lorem Ipsum.
-        </Paragraph>
+        </p>
       </Tile>
       <Tile>
         <SmallTilesContainer>
           <SmallTile>
             <PublicIcon style={publicIconStyles} />
-            <SmallTileTitle>6 krajów</SmallTileTitle>
-            <Paragraph>
+            <SmallTitle>6 krajów</SmallTitle>
+            <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Necessitatibus animi ducimus suscipit illo aut, cum, veritatis
               corporis nesciunt ipsa iste quibusdam ratione ea?
-            </Paragraph>
+            </p>
           </SmallTile>
           <SmallTile>
             <LocationOnIcon style={locationIconStyles} />
-            <SmallTileTitle>2000 lokalizacji</SmallTileTitle>
-            <Paragraph>
+            <SmallTitle>2000 lokalizacji</SmallTitle>
+            <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Necessitatibus animi ducimus suscipit illo aut, cum, veritatis
               corporis nesciunt ipsa iste quibusdam ratione ea?
-            </Paragraph>
+            </p>
           </SmallTile>
           <SmallTile>
             <HotelIcon style={hotelIconStyles} />
-            <SmallTileTitle>10000 ofert</SmallTileTitle>
-            <Paragraph>
+            <SmallTitle>10000 ofert</SmallTitle>
+            <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Necessitatibus animi ducimus suscipit illo aut, cum, veritatis
               corporis nesciunt ipsa iste quibusdam ratione ea?
-            </Paragraph>
+            </p>
           </SmallTile>
         </SmallTilesContainer>
       </Tile>
@@ -84,13 +89,4 @@ const SmallTile = styled.div`
   @media (min-width: 800px) {
     flex: 0 0 25%;
   }
-`;
-
-const SmallTileTitle = styled.h3`
-  font-size: ${(props) => props.theme.fonts.lg};
-  margin: 10px 0;
-`;
-
-const Paragraph = styled.p`
-  font-size: ${(props) => props.theme.fonts.md};
 `;

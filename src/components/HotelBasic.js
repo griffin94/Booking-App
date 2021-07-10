@@ -77,7 +77,7 @@ const HotelBasic = ({
           {buttonLabel}
         </StyledButton>
         <StyledButton>
-          <StyledLink to={`/Booking-App/hotel/${id}`}>Galeria</StyledLink>
+          <StyledLink to={`/hotel/${id}`}>Galeria</StyledLink>
         </StyledButton>
       </Navigation>
     </Tile>
@@ -128,18 +128,15 @@ const Table = styled.table`
 const TableRow = styled.tr``;
 
 const HeaderCell = styled.th`
-  font-size: ${(props) => props.theme.fonts.md};
   padding: 5px;
   text-align: center;
 `;
 const DataCell = styled.td`
-  font-size: ${(props) => props.theme.fonts.md};
   padding: 5px;
   text-align: center;
 `;
 
 const Rating = styled.span`
-  font-size: ${(props) => props.theme.fonts.md};
   font-weight: bold;
   color: #fff;
   padding: 2px 10px;
@@ -161,14 +158,12 @@ const Description = styled.div`
   flex: 1 1 100%;
   margin: 10px 0;
   text-align: justify;
-  font-size: ${(props) => props.theme.fonts.md};
 `;
 
 const FullDescription = styled.div`
   flex: 1 1 100%;
   margin: 10px 0;
   text-align: justify;
-  font-size: ${(props) => props.theme.fonts.md};
   max-height: ${(props) => `${props.maxHeight}px`};
   transition: max-height 0.2s linear;
   overflow: hidden;

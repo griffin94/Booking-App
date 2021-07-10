@@ -50,7 +50,6 @@ const Header = styled.div`
 const Content = styled.div`
   padding: 0 5px;
   max-height: ${(props) => props.maxHeight}px;
-  font-size: ${(props) => props.theme.fonts.md};
   transition: max-height 0.2s ease;
 `;
 

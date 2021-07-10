@@ -2,18 +2,19 @@ import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { Input, IconButton } from "./ui/UIComponents";
 import SearchIcon from "@material-ui/icons/Search";
+import { useHistory } from "react-router-dom";
 
-const SearchBar = ({ searchHandler }) => {
+const SearchBar = () => {
   const [term, setTerm] = useState("");
   const inputRef = useRef(null);
+  const history = useHistory();
 
   useEffect(() => {
     inputRef.current.focus();
   }, []);
 
   const submitHandler = (e) => {
-    e.preventDefault();
-    searchHandler(term);
+    term && history.push(`/search/${term}`);
     setTerm("");
   };
 

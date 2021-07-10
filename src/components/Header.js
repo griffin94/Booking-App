@@ -1,21 +1,22 @@
-import React, { forwardRef } from "react";
+import React from "react";
 import styled from "styled-components";
 import HeaderBackground from "../assets/header.jpg";
 import withMousePosition from "./hoc/withMousePosition";
+import { MainTitle, Title } from "./ui/UIComponents";
 
-const Header = forwardRef(({ mousePos }, ref) => {
+const Header = ({ mousePos }) => {
   const parallaxStyles = {
     transform: `translate(${-mousePos.x / 100}px, ${-mousePos.y / 100}px)`,
   };
 
   return (
-    <Container ref={ref}>
+    <Container>
       <Background style={parallaxStyles}></Background>
-      <Title>Booking App</Title>
-      <Description>Z nami znajdziesz najlepsze hotele!</Description>
+      <MainTitle>Booking App</MainTitle>
+      <StyledTitle>Z nami znajdziesz najlepsze hotele!</StyledTitle>
     </Container>
   );
-});
+};
 
 export default withMousePosition(React.memo(Header));
 
@@ -47,14 +48,7 @@ const Background = styled.div`
   filter: brightness(0.4);
 `;
 
-const Title = styled.h1`
+const StyledTitle = styled(Title)`
   color: #fff;
-  font-size: ${(props) => props.theme.fonts.xxl};
-  text-shadow: 1px 1px 4px #aaa;
-`;
-
-const Description = styled.h2`
-  color: #fff;
-  font-size: ${(props) => props.theme.fonts.xl};
   text-shadow: 1px 1px 4px #aaa;
 `;

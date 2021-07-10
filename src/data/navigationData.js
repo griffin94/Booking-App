@@ -2,17 +2,17 @@ const navigationData = [
   {
     id: 1,
     name: "Hotele",
-    url: "/Booking-App/",
+    url: "/",
   },
   {
     id: 2,
     name: "O nas",
-    url: "/Booking-App/about",
+    url: "/about",
   },
   {
     id: 3,
     name: "Kontakt",
-    url: "/Booking-App/contact",
+    url: "/contact",
   },
 ];
 

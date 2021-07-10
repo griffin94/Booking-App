@@ -36,11 +36,33 @@ const Tile = styled.div`
 
 export { Tile };
 
+const MainTitle = styled.h1`
+  color: #fff;
+  font-size: ${(props) => props.theme.fonts.xxl};
+  text-shadow: 1px 1px 4px #aaa;
+`;
+
+export { MainTitle };
+
 const Title = styled.h2`
   font-size: ${(props) => props.theme.fonts.xl};
+  margin-bottom: 10px;
+  @media (min-width: 800px) {
+    margin-bottom: 20px;
+  }
 `;
 
 export { Title };
+
+const SmallTitle = styled.h3`
+  font-size: ${(props) => props.theme.fonts.lg};
+  margin: 10px 0;
+  @media (min-width: 800px) {
+    margin: 20px 0;
+  }
+`;
+
+export { SmallTitle };
 
 const Input = styled.input`
   min-width: 0px;
@@ -100,7 +122,6 @@ const Button = styled.button`
   border-radius: 6px;
   background: #009dff;
   color: #fff;
-  font-size: ${(props) => props.theme.fonts.sm};
   cursor: pointer;
   :hover {
     background: #0383d3;
@@ -112,7 +133,6 @@ const Button = styled.button`
   a {
     text-decoration: none;
     color: #fff;
-    font-size: ${(props) => props.theme.fonts.sm};
   }
 `;
 

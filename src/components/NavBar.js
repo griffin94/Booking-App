@@ -4,12 +4,12 @@ import Nav from "./Nav";
 import SearchBar from "./SearchBar";
 import ThemeButton from "./ThemeButton";
 
-const NavBar = ({ searchHandler }) => {
+const NavBar = () => {
   return (
     <Container>
       <ThemeButton />
       <SearchBarWrapper>
-        <SearchBar searchHandler={searchHandler} />
+        <SearchBar />
       </SearchBarWrapper>
       <NavWrapper>
         <Nav />

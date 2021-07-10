@@ -87,7 +87,6 @@ const ListItem = styled.li`
 `;
 const StyledLink = styled(NavLink)`
   text-decoration: none;
-  font-size: ${(props) => props.theme.fonts.sm};
   color: ${(props) => props.theme.fontColor};
   display: block;
   height: 60px;

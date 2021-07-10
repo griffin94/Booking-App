@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import Accordion from "../components/Accordion";
 import Carousel from "../components/Carousel";
@@ -16,9 +15,9 @@ const HotelExtended = () => {
   return (
     <Container>
       <Tile>
-        <StyledTitle>
+        <Title>
           {hotel.name} - {hotel.city}, {hotel.country}
-        </StyledTitle>
+        </Title>
         <Carousel images={hotel.images} />
         <Accordion accordionData={hotel.accordion} />
       </Tile>
@@ -27,7 +26,3 @@ const HotelExtended = () => {
 };
 
 export default HotelExtended;
-
-const StyledTitle = styled(Title)`
-  margin-bottom: 20px;
-`;

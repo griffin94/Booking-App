@@ -2,11 +2,10 @@ import React from "react";
 import { createGlobalStyle } from "styled-components";
 
 const fonts = {
-  sm: "1.2rem",
-  md: "1.4rem",
-  lg: "2rem",
-  xl: "2.4rem",
-  xxl: "4rem",
+  md: "1.2rem",
+  lg: "1.6rem",
+  xl: "2rem",
+  xxl: "2.8rem",
 };
 
 const theme = {
@@ -35,6 +34,9 @@ const theme = {
       shadow: "0px 5px 4px rgb(0 0 0 / 20%)",
     },
     accordion: {
+      bg: "#666",
+    },
+    cards: {
       bg: "#666",
     },
     fonts,
@@ -66,6 +68,9 @@ const theme = {
     accordion: {
       bg: "#e5e5e5",
     },
+    cards: {
+      bg: "#ebeae8",
+    },
     fonts,
   },
 };
@@ -76,7 +81,10 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
-    font-size: 12px;
+    font-size: 15px;
+    @media (min-width: 800px) {
+      font-size: 18px;
+    }
 }
 body {
     background-color: ${(props) => props.theme.appBg};
